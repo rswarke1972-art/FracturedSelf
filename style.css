@@ -1,0 +1,356 @@
+/* ==========================
+   GLOBAL STYLES
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,
+body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+
+    font-family:Georgia, serif;
+    background:black;
+    color:white;
+}
+
+body{
+    opacity:0;
+    transition:opacity .8s ease-in-out;
+}
+
+/* ==========================
+   COMMON OVERLAY
+========================== */
+
+.overlay,
+.scene-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.15),
+        rgba(0,0,0,.35)
+    );
+
+    z-index:1;
+}
+
+/* ==========================
+   INDEX PAGE
+========================== */
+
+.menu-screen{
+    position:relative;
+
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.45),
+        rgba(0,0,0,.72)
+    ),
+    url("assets/images/intro/menu-bg.webp");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.menu-content{
+    position:relative;
+    z-index:2;
+
+    text-align:center;
+    padding:20px;
+}
+
+.game-title{
+    font-size:4rem;
+    letter-spacing:2px;
+
+    margin-bottom:10px;
+
+    text-shadow:
+    0 0 25px rgba(255,255,255,.12);
+}
+
+.subtitle{
+    color:#d4af37;
+
+    font-size:1.35rem;
+    font-style:italic;
+
+    margin-bottom:45px;
+}
+
+.menu-buttons{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+
+    align-items:center;
+}
+
+.menu-buttons button,
+.menu-btn{
+    width:240px;
+    padding:14px 20px;
+
+    border:none;
+    border-radius:16px;
+
+    background:
+    rgba(255,255,255,.08);
+
+    backdrop-filter:blur(8px);
+
+    color:white;
+    font-size:1.08rem;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+}
+
+.menu-buttons button:hover,
+.menu-btn:hover{
+    transform:scale(1.04);
+
+    background:
+    rgba(212,175,55,.15);
+
+    box-shadow:
+    0 0 25px rgba(212,175,55,.22);
+}
+
+/* ==========================
+   STORY PAGE
+========================== */
+
+#story-container{
+    position:relative;
+
+    width:100vw;
+    height:100vh;
+
+    overflow:hidden;
+
+    background:black;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* BIG FIX HERE */
+
+#scene-image{
+    width:100%;
+    height:100%;
+
+    object-fit:contain;   /* whole image visible */
+
+    object-position:center;
+
+    z-index:0;
+}
+
+/* subtle vignette */
+
+.scene-overlay{
+    background:
+    radial-gradient(
+        circle,
+        rgba(0,0,0,.05),
+        rgba(0,0,0,.45)
+    );
+}
+
+/* dialogue */
+
+#dialogue-box{
+    position:absolute;
+
+    bottom:18px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:92%;
+    max-width:1100px;
+
+    z-index:5;
+
+    text-align:center;
+
+    padding:16px 24px;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        to top,
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.12),
+        transparent
+    );
+
+    backdrop-filter:blur(3px);
+}
+
+#speaker-name{
+    color:#d4af37;
+
+    font-size:1.45rem;
+
+    margin-bottom:8px;
+
+    text-shadow:
+    0 0 12px rgba(0,0,0,.8);
+}
+
+#story-text{
+    color:white;
+
+    font-size:1.45rem;
+    line-height:1.75;
+
+    text-align:center;
+
+    text-shadow:
+    0 0 15px rgba(0,0,0,.95);
+}
+
+#continue-indicator{
+    display:block;
+
+    margin-top:8px;
+
+    font-size:.95rem;
+    opacity:.75;
+}
+
+/* ==========================
+   OUTRO PAGE
+========================== */
+
+.outro-screen{
+    position:relative;
+
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.88)
+    ),
+    url("assets/images/intro/menu-bg.webp");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.outro-content{
+    position:relative;
+    z-index:2;
+
+    text-align:center;
+
+    max-width:700px;
+    padding:20px;
+}
+
+.credits-title{
+    font-size:3rem;
+    margin-bottom:12px;
+}
+
+.to-be-continued{
+    font-size:1.2rem;
+    color:#d4af37;
+
+    margin-bottom:40px;
+    font-style:italic;
+}
+
+.credits-section h2,
+.credits-section h3{
+    color:#d4af37;
+    margin-bottom:8px;
+}
+
+.credits-section p{
+    margin-bottom:12px;
+    font-size:1.05rem;
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+    .game-title{
+        font-size:2.5rem;
+    }
+
+    .subtitle{
+        font-size:1rem;
+    }
+
+    .menu-buttons button{
+        width:200px;
+    }
+
+    #dialogue-box{
+        width:95%;
+        bottom:10px;
+
+        padding:14px 18px;
+    }
+
+    #story-text{
+        font-size:1rem;
+        line-height:1.65;
+    }
+
+    #speaker-name{
+        font-size:1.1rem;
+    }
+
+    #continue-indicator{
+        font-size:.8rem;
+    }
+
+    .credits-title{
+        font-size:2rem;
+    }
+}
+
+@media(max-width:480px){
+
+    #story-text{
+        font-size:.95rem;
+    }
+
+    .game-title{
+        font-size:2rem;
+    }
+}

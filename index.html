@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fractured Self: The Fall of Nader</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="menu-screen">
+    <div class="overlay"></div>
+
+    <div class="menu-content">
+      <h1 class="game-title">Fractured Self</h1>
+      <p class="subtitle">The Fall of Nader</p>
+
+      <div class="menu-buttons">
+        <button onclick="startStory()">Start Story</button>
+        <button onclick="openCredits()">Credits</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  function startStory() {
+    window.location.href = "story.html";
+  }
+
+  function openCredits() {
+    window.location.href = "outro.html";
+  }
+
+  // Make page visible
+  window.addEventListener("load", () => {
+    document.body.style.opacity = "1";
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1362 @@
+{
+  "intro": [
+  {
+    "image": "assets/images/intro/scene1.webp",
+    "speaker": "",
+    "text": "Like an arrow, you are released with certainty,"
+  },
+
+  {
+    "image": "assets/images/intro/scene1.webp",
+    "speaker": "",
+    "text": "your eyes fixed on the mark  "
+  },
+
+  {
+    "image": "assets/images/intro/scene1.webp",
+    "speaker": "",
+    "text": "never failing, never straying from the prey you choose."
+  },
+
+  {
+    "image": "assets/images/intro/scene2.webp",
+    "speaker": "",
+    "text": "Like the darkness that settles without warning,"
+  },
+
+  {
+    "image": "assets/images/intro/scene2.webp",
+    "speaker": "",
+    "text": "you are quiet and unsettling,"
+  },
+
+  {
+    "image": "assets/images/intro/scene2.webp",
+    "speaker": "",
+    "text": "casting fear into others"
+  },
+
+  {
+    "image": "assets/images/intro/scene2.webp",
+    "speaker": "",
+    "text": "while a far greater fear coils within your own chest."
+  },
+
+  {
+    "image": "assets/images/intro/scene3.webp",
+    "speaker": "",
+    "text": "Like a tranquil sea, you draw me in  "
+  },
+
+  {
+    "image": "assets/images/intro/scene3.webp",
+    "speaker": "",
+    "text": "and I stand torn"
+  },
+
+  {
+    "image": "assets/images/intro/scene3.webp",
+    "speaker": "",
+    "text": "between surrendering to your depths"
+  },
+
+  {
+    "image": "assets/images/intro/scene3.webp",
+    "speaker": "",
+    "text": "or watching you from the safety of the shore,"
+  },
+
+  {
+    "image": "assets/images/intro/scene3.webp",
+    "speaker": "",
+    "text": "wary of what sleeps beneath your calm."
+  },
+
+  {
+    "image": "assets/images/intro/scene4.webp",
+    "speaker": "",
+    "text": "You are a sovereign in your own mind  "
+  },
+
+  {
+    "image": "assets/images/intro/scene4.webp",
+    "speaker": "",
+    "text": "a king of pride and unyielding command,"
+  },
+
+  {
+    "image": "assets/images/intro/scene4.webp",
+    "speaker": "",
+    "text": "claiming all things as though they were born beneath your crown."
+  },
+
+  {
+    "image": "assets/images/intro/scene5.webp",
+    "speaker": "",
+    "text": "Yet do not mistake my silence for obedience, my dear."
+  },
+
+  {
+    "image": "assets/images/intro/scene5.webp",
+    "speaker": "",
+    "text": "If you are the king swollen with pride,"
+  },
+
+  {
+    "image": "assets/images/intro/scene5.webp",
+    "speaker": "",
+    "text": "then I am the one who defies your throne."
+  },
+
+  {
+    "image": "assets/images/intro/scene6.webp",
+    "speaker": "",
+    "text": "If you are the night that swallows the sky,"
+  },
+
+  {
+    "image": "assets/images/intro/scene6.webp",
+    "speaker": "",
+    "text": "I am the first light of dawn"
+  },
+
+  {
+    "image": "assets/images/intro/scene6.webp",
+    "speaker": "",
+    "text": "slipping through the door of hope"
+  },
+
+  {
+    "image": "assets/images/intro/scene6.webp",
+    "speaker": "",
+    "text": "to end your reign of shadows."
+  },
+
+  {
+    "image": "assets/images/intro/scene7.webp",
+    "speaker": "",
+    "text": "If you are the quiet sea that threatens in stillness,"
+  },
+
+  {
+    "image": "assets/images/intro/scene7.webp",
+    "speaker": "",
+    "text": "then I am the wind that will rouse you  "
+  },
+
+  {
+    "image": "assets/images/intro/scene7.webp",
+    "speaker": "",
+    "text": "that will summon waves and life back into your waters."
+  },
+
+  {
+    "image": "assets/images/intro/scene7.webp",
+    "speaker": "",
+    "text": "Do not blame yourself for failing to understand me;"
+  },
+
+  {
+    "image": "assets/images/intro/scene7.webp",
+    "speaker": "",
+    "text": "you have never known my name."
+  },
+
+  {
+    "image": "assets/images/intro/scene7.webp",
+    "speaker": "",
+    "text": "Call me the storm, if you must  "
+  },
+
+  {
+    "image": "assets/images/intro/scene7.webp",
+    "speaker": "",
+    "text": "the force that will overturn your world"
+  },
+
+  {
+    "image": "assets/images/intro/scene7.webp",
+    "speaker": "",
+    "text": "and break the spine of your arrogance."
+  },
+
+  {
+    "image": "assets/images/intro/scene7.webp",
+    "speaker": "",
+    "text": "You will change."
+  },
+
+  {
+    "image": "assets/images/intro/scene7.webp",
+    "speaker": "",
+    "text": "I will change you  "
+  },
+
+  {
+    "image": "assets/images/intro/scene7.webp",
+    "speaker": "",
+    "text": "with or without your consent,"
+  },
+
+  {
+    "image": "assets/images/intro/scene7.webp",
+    "speaker": "",
+    "text": "my magnificent,"
+  },
+
+  {
+    "image": "assets/images/intro/scene7.webp",
+    "speaker": "",
+    "text": "stubborn pride."
+  }
+],
+
+  "chapter1": [
+
+  {
+    "image": "assets/images/chapter1/scene1.webp",
+    "speaker": "",
+    "text": "In a vast mansion in the district of Maadi, a handful of sharp cries echoed through the halls."
+  },
+
+  {
+    "image": "assets/images/chapter1/scene2.webp",
+    "speaker": "Omniyah",
+    "text": "Sabaaah! Sabaaah, where are you?"
+  },
+
+  {
+    "image": "assets/images/chapter1/scene2.webp",
+    "speaker": "",
+    "text": "Omniyah’s voice rang again, impatient and rising."
+  },
+
+  {
+    "image": "assets/images/chapter1/scene2.webp",
+    "speaker": "Sabah",
+    "text": "Yes, Madame Omniyah?"
+  },
+
+  {
+    "image": "assets/images/chapter1/scene2.webp",
+    "speaker": "",
+    "text": "Sabah finally answered, appearing at the doorway."
+  },
+
+  {
+    "image": "assets/images/chapter1/scene2.webp",
+    "speaker": "Omniyah",
+    "text": "Do you not have ears? I’ve been calling you all morning."
+  },
+
+  {
+  "image": "assets/images/chapter1/scene2.webp",
+  "speaker": "Sabah",
+  "text": "I am sorry, Madam, I was just "
+},
+
+{
+  "image": "assets/images/chapter1/scene2.webp",
+  "speaker": "Omniyah",
+  "text": "Spare me your excuses"
+},
+
+{
+  "image": "assets/images/chapter1/scene2.webp",
+  "speaker": "Omniyah",
+  "text": "and go call the young master upstairs."
+},
+
+{
+  "image": "assets/images/chapter1/scene2.webp",
+  "speaker": "Omniyah",
+  "text": "If his father finds him still asleep,"
+},
+
+{
+  "image": "assets/images/chapter1/scene2.webp",
+  "speaker": "Omniyah",
+  "text": "he will bring this whole villa down on our heads."
+},
+
+{
+  "image": "assets/images/chapter1/scene2.webp",
+  "speaker": "Sabah",
+  "text": "Right away, Madam."
+},
+
+{
+  "image": "assets/images/chapter1/scene2.webp",
+  "speaker": "",
+  "text": "Omniyah, mother of our protagonist, was a distinguished lady of high society in her early forties."
+},
+
+{
+  "image": "assets/images/chapter1/scene2.webp",
+  "speaker": "",
+  "text": "Yet no one would guess her age at first glance;"
+},
+
+{
+  "image": "assets/images/chapter1/scene2.webp",
+  "speaker": "",
+  "text": "her face remained tender and youthful, framed by soft silken hair."
+},
+
+{
+  "image": "assets/images/chapter1/scene2.webp",
+  "speaker": "",
+  "text": "Still, do not be fooled by such beauty."
+},
+
+{
+  "image": "assets/images/chapter1/scene2.webp",
+  "speaker": "",
+  "text": "In her world, nothing mattered but wealth and appearances,"
+},
+
+{
+  "image": "assets/images/chapter1/scene2.webp",
+  "speaker": "",
+  "text": "and nothing repulsed her more than those of the middle or lower class  "
+},
+
+{
+  "image": "assets/images/chapter1/scene2.webp",
+  "speaker": "",
+  "text": "whom she saw as a burden upon society."
+},
+
+{
+  "image": "assets/images/chapter1/scene3.webp",
+  "speaker": "",
+  "text": "Sabah knocked gently on the door upstairs,"
+},
+
+{
+  "image": "assets/images/chapter1/scene3.webp",
+  "speaker": "",
+  "text": "fearful of what mood awaited her on the other side."
+},
+
+{
+  "image": "assets/images/chapter1/scene3.webp",
+  "speaker": "Sabah",
+  "text": "Master Nader… Master Nader, please wake up."
+},
+
+{
+  "image": "assets/images/chapter1/scene3.webp",
+  "speaker": "Sabah",
+  "text": "If your father finds you asleep,"
+},
+
+{
+  "image": "assets/images/chapter1/scene3.webp",
+  "speaker": "Sabah",
+  "text": "it will not end well."
+},
+
+{
+  "image": "assets/images/chapter1/scene3.webp",
+  "speaker": "",
+  "text": "A deep voice responded, thick with irritation."
+},
+
+{
+  "image": "assets/images/chapter1/scene3.webp",
+  "speaker": "Nader",
+  "text": "Alright, alright, Sabah…"
+},
+
+{
+  "image": "assets/images/chapter1/scene3.webp",
+  "speaker": "Nader",
+  "text": "let me change and I’ll come down."
+},
+
+{
+  "image": "assets/images/chapter1/scene3.webp",
+  "speaker": "Nader",
+  "text": "Anything else?"
+},
+
+{
+  "image": "assets/images/chapter1/scene3.webp",
+  "speaker": "Nader",
+  "text": "Then go on."
+},
+
+{
+  "image": "assets/images/chapter1/scene4.webp",
+  "speaker": "",
+  "text": "Under her breath, Sabah murmured to herself,"
+},
+
+{
+  "image": "assets/images/chapter1/scene4.webp",
+  "speaker": "Sabah",
+  "text": "God help us…"
+},
+
+{
+  "image": "assets/images/chapter1/scene4.webp",
+  "speaker": "Sabah",
+  "text": "what they’ve turned you into."
+},
+
+{
+  "image": "assets/images/chapter1/scene4.webp",
+  "speaker": "Sabah",
+  "text": "You were once the pride of this house,"
+},
+
+{
+  "image": "assets/images/chapter1/scene4.webp",
+  "speaker": "Sabah",
+  "text": "an example to all young men."
+},
+
+{
+  "image": "assets/images/chapter1/scene4.webp",
+  "speaker": "Sabah",
+  "text": "May God take justice from those who ruined you."
+},
+
+{
+  "image": "assets/images/chapter1/scene5.webp",
+  "speaker": "",
+  "text": "Inside the room, Nader lay sprawled across his bed."
+},
+
+{
+  "image": "assets/images/chapter1/scene5.webp",
+  "speaker": "",
+  "text": "He had grown used to long nights with his so-called friends,"
+},
+
+{
+  "image": "assets/images/chapter1/scene5.webp",
+  "speaker": "",
+  "text": "returning home barely conscious,"
+},
+
+{
+  "image": "assets/images/chapter1/scene5.webp",
+  "speaker": "",
+  "text": "hauling himself up the stairs only to continue drinking alone."
+},
+
+{
+  "image": "assets/images/chapter1/scene5.webp",
+  "speaker": "",
+  "text": "This was Nader   our protagonist  "
+},
+
+{
+  "image": "assets/images/chapter1/scene5.webp",
+  "speaker": "",
+  "text": "twenty-seven years of age,"
+},
+
+{
+  "image": "assets/images/chapter1/scene5.webp",
+  "speaker": "",
+  "text": "with dark, smooth hair, amber eyes, and an athletic build."
+},
+
+{
+  "image": "assets/images/chapter1/scene5.webp",
+  "speaker": "",
+  "text": "Three times in a row"
+},
+
+{
+  "image": "assets/images/chapter1/scene5.webp",
+  "speaker": "",
+  "text": "he had been the national boxing champion."
+},
+
+{
+  "image": "assets/images/chapter1/scene5.webp",
+  "speaker": "",
+  "text": "But life does not hold its course for long."
+},
+
+{
+  "image": "assets/images/chapter1/scene6.webp",
+  "speaker": "",
+  "text": "He opened his eyes slowly,"
+},
+
+{
+  "image": "assets/images/chapter1/scene6.webp",
+  "speaker": "",
+  "text": "wincing from the ache pounding inside his skull."
+},
+
+{
+  "image": "assets/images/chapter1/scene6.webp",
+  "speaker": "Nader",
+  "text": "Ugh… another morning of lectures."
+},
+
+{
+  "image": "assets/images/chapter1/scene6.webp",
+  "speaker": "Nader",
+  "text": "Better get dressed and disappear before they start again."
+},
+
+{
+  "image": "assets/images/chapter1/scene6.webp",
+  "speaker": "Nader",
+  "text": "I’ll go to Shady’s place…"
+},
+
+{
+  "image": "assets/images/chapter1/scene7.webp",
+  "speaker": "",
+  "text": "He reached for his phone, dialing Shady  "
+},
+
+{
+  "image": "assets/images/chapter1/scene7.webp",
+  "speaker": "",
+  "text": "the man he called his friend."
+},
+
+{
+  "image": "assets/images/chapter1/scene7.webp",
+  "speaker": "",
+  "text": "Yet a true friend is one who guides you when you lose your way,"
+},
+
+{
+  "image": "assets/images/chapter1/scene7.webp",
+  "speaker": "",
+  "text": "who reminds you of who you are when you forget."
+},
+
+{
+  "image": "assets/images/chapter1/scene7.webp",
+  "speaker": "",
+  "text": "But Nader was blind to that truth,"
+},
+
+{
+  "image": "assets/images/chapter1/scene7.webp",
+  "speaker": "",
+  "text": "and Shady was all he saw."
+},
+
+{
+  "image": "assets/images/chapter1/scene8.webp",
+  "speaker": "Shady",
+  "text": "Yeah, man?"
+},
+
+{
+  "image": "assets/images/chapter1/scene8.webp",
+  "speaker": "Nader",
+  "text": "Where are you?"
+},
+
+{
+  "image": "assets/images/chapter1/scene8.webp",
+  "speaker": "Shady",
+  "text": "At the place."
+},
+
+{
+  "image": "assets/images/chapter1/scene8.webp",
+  "speaker": "Shady",
+  "text": "Everything’s ready  "
+},
+
+{
+  "image": "assets/images/chapter1/scene8.webp",
+  "speaker": "Shady",
+  "text": "girls, w**d, whatever you want."
+},
+
+{
+  "image": "assets/images/chapter1/scene8.webp",
+  "speaker": "Shady",
+  "text": "Your mood will change in no time."
+},
+
+{
+  "image": "assets/images/chapter1/scene8.webp",
+  "speaker": "Nader",
+  "text": "Perfect…"
+},
+
+{
+  "image": "assets/images/chapter1/scene8.webp",
+  "speaker": "Nader",
+  "text": "I love you most when you have everything set."
+},
+
+{
+  "image": "assets/images/chapter1/scene8.webp",
+  "speaker": "",
+  "text": "Shady laughed."
+},
+
+{
+  "image": "assets/images/chapter1/scene8.webp",
+  "speaker": "Shady",
+  "text": "Hurry up, bro."
+},
+
+{
+  "image": "assets/images/chapter1/scene8.webp",
+  "speaker": "Shady",
+  "text": "Everyone’s waiting for the king to show up."
+},
+
+{
+  "image": "assets/images/chapter1/scene8.webp",
+  "speaker": "Nader",
+  "text": "On my way."
+},
+
+{
+  "image": "assets/images/chapter1/scene9.webp",
+  "speaker": "",
+  "text": "Nader threw on a white shirt beneath a navy suit,"
+},
+
+{
+  "image": "assets/images/chapter1/scene9.webp",
+  "speaker": "",
+  "text": "sprayed his cologne,"
+},
+
+{
+  "image": "assets/images/chapter1/scene10.webp",
+  "speaker": "",
+  "text": "and descended the stairs."
+},
+
+{
+  "image": "assets/images/chapter1/scene10.webp",
+  "speaker": "Omniyah",
+  "text": "You’re awake, my dear boy?"
+},
+
+{
+  "image": "assets/images/chapter1/scene10.webp",
+  "speaker": "",
+  "text": "Omniyah asked."
+},
+
+{
+  "image": "assets/images/chapter1/scene10.webp",
+  "speaker": "Nader",
+  "text": "Oh, Noni…"
+},
+
+{
+  "image": "assets/images/chapter1/scene10.webp",
+  "speaker": "Nader",
+  "text": "the most beautiful woman in the world."
+},
+
+{
+  "image": "assets/images/chapter1/scene10.webp",
+  "speaker": "Nader",
+  "text": "How’s your morning?"
+},
+
+{
+  "image": "assets/images/chapter1/scene10.webp",
+  "speaker": "Omniyah",
+  "text": "Spare me the flattery."
+},
+
+{
+  "image": "assets/images/chapter1/scene10.webp",
+  "speaker": "Omniyah",
+  "text": "Aren’t you tired of this disgraceful behavior?"
+},
+
+{
+  "image": "assets/images/chapter1/scene10.webp",
+  "speaker": "Nader",
+  "text": "Mother, everyone lives like this."
+},
+
+{
+  "image": "assets/images/chapter1/scene10.webp",
+  "speaker": "Nader",
+  "text": "I don’t need this lecture now  "
+},
+
+{
+  "image": "assets/images/chapter1/scene10.webp",
+  "speaker": "Nader",
+  "text": "I need to leave before Father returns"
+},
+
+{
+  "image": "assets/images/chapter1/scene10.webp",
+  "speaker": "Nader",
+  "text": "and begins his interrogation again."
+},
+
+{
+  "image": "assets/images/chapter1/scene10.webp",
+  "speaker": "Omniyah",
+  "text": "You cannot keep this up, Nader."
+},
+
+{
+  "image": "assets/images/chapter1/scene10.webp",
+  "speaker": "Omniyah",
+  "text": "Our reputation is at stake."
+},
+
+{
+  "image": "assets/images/chapter1/scene11.webp",
+  "speaker": "",
+  "text": "A commanding voice echoed from behind them."
+},
+
+{
+  "image": "assets/images/chapter1/scene11.webp",
+  "speaker": "Fawzy",
+  "text": "Your reputation?"
+},
+
+{
+  "image": "assets/images/chapter1/scene11.webp",
+  "speaker": "Fawzy",
+  "text": "It is all your doing, Madam."
+},
+
+{
+  "image": "assets/images/chapter1/scene12.webp",
+  "speaker": "Nader",
+  "text": "Good morning, Father."
+},
+
+{
+  "image": "assets/images/chapter1/scene12.webp",
+  "speaker": "",
+  "text": "Nader said softly."
+},
+
+{
+  "image": "assets/images/chapter1/scene12.webp",
+  "speaker": "Fawzy",
+  "text": "Good evening."
+},
+
+{
+  "image": "assets/images/chapter1/scene12.webp",
+  "speaker": "",
+  "text": "Fawzy replied sternly."
+},
+
+{
+  "image": "assets/images/chapter1/scene12.webp",
+  "speaker": "Fawzy",
+  "text": "Look at the time."
+},
+
+{
+  "image": "assets/images/chapter1/scene12.webp",
+  "speaker": "Fawzy",
+  "text": "A useless boy like you wakes at six in the evening"
+},
+
+{
+  "image": "assets/images/chapter1/scene12.webp",
+  "speaker": "Fawzy",
+  "text": "and calls it morning?"
+},
+
+{
+  "image": "assets/images/chapter1/scene12.webp",
+  "speaker": "",
+  "text": "Fawzy al-Damanhouri   father of our protagonist  "
+},
+
+{
+  "image": "assets/images/chapter1/scene12.webp",
+  "speaker": "",
+  "text": "was the owner of the largest chain of travel companies in the Middle East."
+},
+
+{
+  "image": "assets/images/chapter1/scene12.webp",
+  "speaker": "",
+  "text": "A traditional man, strict with his son,"
+},
+
+{
+  "image": "assets/images/chapter1/scene12.webp",
+  "speaker": "",
+  "text": "hoping one day Nader would return to who he once was."
+},
+
+{
+  "image": "assets/images/chapter1/scene12.webp",
+  "speaker": "",
+  "text": "Unlike his wife,"
+},
+
+{
+  "image": "assets/images/chapter1/scene12.webp",
+  "speaker": "",
+  "text": "he cared little for social divisions"
+},
+
+{
+  "image": "assets/images/chapter1/scene12.webp",
+  "speaker": "",
+  "text": "and believed all people equal,"
+},
+
+{
+  "image": "assets/images/chapter1/scene12.webp",
+  "speaker": "",
+  "text": "regardless of class."
+},
+
+{
+  "image": "assets/images/chapter1/scene12.webp",
+  "speaker": "",
+  "text": "We return."
+},
+
+{
+  "image": "assets/images/chapter1/scene13.webp",
+  "speaker": "Omniyah",
+  "text": "Calm down, Fawzy, please…"
+},
+
+{
+  "image": "assets/images/chapter1/scene13.webp",
+  "speaker": "",
+  "text": "Omniyah whispered."
+},
+
+{
+  "image": "assets/images/chapter1/scene13.webp",
+  "speaker": "Fawzy",
+  "text": "Be silent!"
+},
+
+{
+  "image": "assets/images/chapter1/scene13.webp",
+  "speaker": "",
+  "text": "his voice thundered."
+},
+
+{
+  "image": "assets/images/chapter1/scene13.webp",
+  "speaker": "Fawzy",
+  "text": "All of this is your fault  "
+},
+
+{
+  "image": "assets/images/chapter1/scene13.webp",
+  "speaker": "Fawzy",
+  "text": "yours and that wretched woman who ruined him."
+},
+
+{
+  "image": "assets/images/chapter1/scene13.webp",
+  "speaker": "Fawzy",
+  "text": "My son was once a man,"
+},
+
+{
+  "image": "assets/images/chapter1/scene13.webp",
+  "speaker": "Fawzy",
+  "text": "dependable,"
+},
+
+{
+  "image": "assets/images/chapter1/scene13.webp",
+  "speaker": "Fawzy",
+  "text": "my right hand."
+},
+
+{
+  "image": "assets/images/chapter1/scene14.webp",
+  "speaker": "Fawzy",
+  "text": "I am aging, Nader,"
+},
+
+{
+  "image": "assets/images/chapter1/scene14.webp",
+  "speaker": "Fawzy",
+  "text": "and cannot carry everything alone."
+},
+
+{
+  "image": "assets/images/chapter1/scene14.webp",
+  "speaker": "Fawzy",
+  "text": "Why, son?"
+},
+
+{
+  "image": "assets/images/chapter1/scene14.webp",
+  "speaker": "Fawzy",
+  "text": "Why destroy yourself"
+},
+
+{
+  "image": "assets/images/chapter1/scene14.webp",
+  "speaker": "Fawzy",
+  "text": "for a worthless woman who toyed with you?"
+},
+
+{
+  "image": "assets/images/chapter1/scene14.webp",
+  "speaker": "Nader",
+  "text": "Father, please…"
+},
+
+{
+  "image": "assets/images/chapter1/scene14.webp",
+  "speaker": "Nader",
+  "text": "stop reminding me."
+},
+
+{
+  "image": "assets/images/chapter1/scene14.webp",
+  "speaker": "Nader",
+  "text": "I want to forget her."
+},
+
+{
+  "image": "assets/images/chapter1/scene14.webp",
+  "speaker": "Nader",
+  "text": "Just leave it."
+},
+
+{
+  "image": "assets/images/chapter1/scene15.webp",
+  "speaker": "",
+  "text": "Nader took a step toward the door,"
+},
+
+{
+  "image": "assets/images/chapter1/scene15.webp",
+  "speaker": "",
+  "text": "but his father’s voice pinned him in place."
+},
+
+{
+  "image": "assets/images/chapter1/scene15.webp",
+  "speaker": "Fawzy",
+  "text": "You think forgetting comes"
+},
+
+{
+  "image": "assets/images/chapter1/scene15.webp",
+  "speaker": "Fawzy",
+  "text": "from drowning yourself in filth"
+},
+
+{
+  "image": "assets/images/chapter1/scene15.webp",
+  "speaker": "Fawzy",
+  "text": "with that garbage you call friends?"
+},
+
+{
+  "image": "assets/images/chapter1/scene15.webp",
+  "speaker": "Fawzy",
+  "text": "When your money runs out"
+},
+
+{
+  "image": "assets/images/chapter1/scene15.webp",
+  "speaker": "Fawzy",
+  "text": "they’ll leave you in the street  "
+},
+
+{
+  "image": "assets/images/chapter1/scene15.webp",
+  "speaker": "Fawzy",
+  "text": "mark my words."
+},
+
+{
+  "image": "assets/images/chapter1/scene16.webp",
+  "speaker": "Nader",
+  "text": "Father, enough."
+},
+
+{
+  "image": "assets/images/chapter1/scene16.webp",
+  "speaker": "Nader",
+  "text": "I chose this."
+},
+
+{
+  "image": "assets/images/chapter1/scene16.webp",
+  "speaker": "Nader",
+  "text": "I do not force anyone to love me."
+},
+
+{
+  "image": "assets/images/chapter1/scene16.webp",
+  "speaker": "Nader",
+  "text": "I am not begging the world to stay."
+},
+
+{
+  "image": "assets/images/chapter1/scene17.webp",
+  "speaker": "Fawzy",
+  "text": "As you sow, so shall you reap."
+},
+
+{
+  "image": "assets/images/chapter1/scene17.webp",
+  "speaker": "Fawzy",
+  "text": "What if one day"
+},
+
+{
+  "image": "assets/images/chapter1/scene17.webp",
+  "speaker": "Fawzy",
+  "text": "you have a wife  "
+},
+
+{
+  "image": "assets/images/chapter1/scene17.webp",
+  "speaker": "Fawzy",
+  "text": "a daughter  "
+},
+
+{
+  "image": "assets/images/chapter1/scene17.webp",
+  "speaker": "Fawzy",
+  "text": "and she suffers what you once did?"
+},
+
+{
+  "image": "assets/images/chapter1/scene17.webp",
+  "speaker": "Fawzy",
+  "text": "Not every woman is like Haidy."
+},
+
+{
+  "image": "assets/images/chapter1/scene17.webp",
+  "speaker": "Fawzy",
+  "text": "Understand that."
+},
+
+{
+  "image": "assets/images/chapter1/scene18.webp",
+  "speaker": "",
+  "text": "A flash of anger twisted Nader’s features."
+},
+
+{
+  "image": "assets/images/chapter1/scene18.webp",
+  "speaker": "Nader",
+  "text": "Do not speak her name again."
+},
+
+{
+  "image": "assets/images/chapter1/scene18.webp",
+  "speaker": "Nader",
+  "text": "She is dead to me."
+},
+
+{
+  "image": "assets/images/chapter1/scene18.webp",
+  "speaker": "Nader",
+  "text": "I was foolish, yes  "
+},
+
+{
+  "image": "assets/images/chapter1/scene18.webp",
+  "speaker": "Nader",
+  "text": "but stop dragging me back."
+},
+
+{
+  "image": "assets/images/chapter1/scene19.webp",
+  "speaker": "Fawzy",
+  "text": "You will remember,"
+},
+
+{
+  "image": "assets/images/chapter1/scene19.webp",
+  "speaker": "",
+  "text": "Fawzy said coldly."
+},
+
+{
+  "image": "assets/images/chapter1/scene19.webp",
+  "speaker": "Fawzy",
+  "text": "because this must end."
+},
+
+{
+  "image": "assets/images/chapter1/scene19.webp",
+  "speaker": "Fawzy",
+  "text": "You are becoming filth,"
+},
+
+{
+  "image": "assets/images/chapter1/scene19.webp",
+  "speaker": "Fawzy",
+  "text": "just like her."
+},
+
+{
+  "image": "assets/images/chapter1/scene20.webp",
+  "speaker": "",
+  "text": "Nader turned away."
+},
+
+{
+  "image": "assets/images/chapter1/scene20.webp",
+  "speaker": "Nader",
+  "text": "So this is how it is."
+},
+
+{
+  "image": "assets/images/chapter1/scene20.webp",
+  "speaker": "Nader",
+  "text": "Goodbye, Father."
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "If you walk out that door,"
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "",
+  "text": "Fawzy roared."
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "do not return until dawn  "
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "and know this:"
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "if you do not change,"
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "I will strip you of everything."
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "Your money,"
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "your car  "
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "this house will no longer be yours."
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "Go to your filthy places,"
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "waste your life with drunken fools,"
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "then crawl back pretending regret"
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "just to take more money"
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "and spend it on them again."
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "You are drowning yourself in trash, boy  "
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "what will you say to God?"
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "Go on."
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "Leave."
+},
+
+{
+  "image": "assets/images/chapter1/scene21.webp",
+  "speaker": "Fawzy",
+  "text": "My son died long ago."
+},
+
+{
+  "image": "assets/images/chapter1/scene22.webp",
+  "speaker": "",
+  "text": "A single tear escaped Nader’s eye"
+},
+
+{
+  "image": "assets/images/chapter1/scene22.webp",
+  "speaker": "",
+  "text": "as he walked away in silence."
+},
+
+{
+  "image": "assets/images/chapter1/scene22.webp",
+  "speaker": "Omniyah",
+  "text": "Son… Nader, please…"
+},
+
+{
+  "image": "assets/images/chapter1/scene22.webp",
+  "speaker": "",
+  "text": "Omniyah reached out,"
+},
+
+{
+  "image": "assets/images/chapter1/scene22.webp",
+  "speaker": "",
+  "text": "but he was already gone."
+},
+
+{
+  "image": "assets/images/chapter1/scene23.webp",
+  "speaker": "Omniyah",
+  "text": "Are you pleased now, Fawzy?"
+},
+
+{
+  "image": "assets/images/chapter1/scene23.webp",
+  "speaker": "",
+  "text": "she cried."
+},
+
+{
+  "image": "assets/images/chapter1/scene23.webp",
+  "speaker": "Omniyah",
+  "text": "I know he is wrong  "
+},
+
+{
+  "image": "assets/images/chapter1/scene23.webp",
+  "speaker": "Omniyah",
+  "text": "but not like this."
+},
+
+{
+  "image": "assets/images/chapter1/scene23.webp",
+  "speaker": "Omniyah",
+  "text": "Not with such cruelty."
+},
+
+{
+  "image": "assets/images/chapter1/scene24.webp",
+  "speaker": "Fawzy",
+  "text": "You never cared for either of us, Omniyah."
+},
+
+{
+  "image": "assets/images/chapter1/scene24.webp",
+  "speaker": "",
+  "text": "he replied, exhausted."
+},
+
+{
+  "image": "assets/images/chapter1/scene24.webp",
+  "speaker": "Fawzy",
+  "text": "Your world is no larger"
+},
+
+{
+  "image": "assets/images/chapter1/scene24.webp",
+  "speaker": "Fawzy",
+  "text": "than your reflection"
+},
+
+{
+  "image": "assets/images/chapter1/scene24.webp",
+  "speaker": "Fawzy",
+  "text": "and your club"
+},
+
+{
+  "image": "assets/images/chapter1/scene24.webp",
+  "speaker": "Fawzy",
+  "text": "and your precious social circles."
+},
+
+{
+  "image": "assets/images/chapter1/scene24.webp",
+  "speaker": "Fawzy",
+  "text": "You are selfish  "
+},
+
+{
+  "image": "assets/images/chapter1/scene24.webp",
+  "speaker": "Fawzy",
+  "text": "and you are the reason"
+},
+
+{
+  "image": "assets/images/chapter1/scene24.webp",
+  "speaker": "Fawzy",
+  "text": "my son is broken."
+}
+]
+}

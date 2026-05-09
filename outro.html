@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Credits | Fractured Self
+    </title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="outro-screen">
+
+        <div class="overlay"></div>
+
+        <section class="outro-content">
+
+            <h1 class="credits-title">
+                Chapter Complete
+            </h1>
+
+            <p class="to-be-continued">
+                To Be Continued...
+            </p>
+
+            <div class="credits-section">
+
+                <h2>Fractured Self</h2>
+                <p>The Fall of Nader</p>
+
+                <br>
+
+                <h3>Website Development</h3>
+                <p>Sahil</p>
+
+                <br>
+
+                <h3>Original Novel Writer</h3>
+                <p>Farida</p>
+
+                <br>
+
+                <h3>Scene Artwork</h3>
+                <p>Created for the visual novel adaptation</p>
+
+                <br>
+
+                <h3>Special Thanks</h3>
+                <p>To everyone who inspired this story.</p>
+
+            </div>
+
+            <button id="home-btn" class="menu-btn">
+                Back to Main Menu
+            </button>
+
+        </section>
+
+    </main>
+
+    <script>
+        // Fade in page
+        window.addEventListener("load", () => {
+            document.body.style.opacity = "1";
+        });
+
+        // Back to menu
+        document
+            .getElementById("home-btn")
+            .addEventListener("click", () => {
+
+                document.body.style.opacity = "0";
+
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 400);
+            });
+    </script>
+
+</body>
+</html>
