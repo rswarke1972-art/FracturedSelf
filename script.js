@@ -57,7 +57,8 @@ async function loadStory() {
         // Combine intro + chapter1
         storyData = [
             ...data.intro,
-            ...data.chapter1
+            ...data.chapter1,
+            ...data.chapter2
         ];
 
         showScene();
