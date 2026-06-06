@@ -1,86 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>
-        Credits | Fractured Self
-    </title>
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credits | Fractured Self</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="theme-dark font-georgia">
 
-    <main class="outro-screen">
+  <main class="outro-screen" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)), url('assets/images/intro/menu-bg.webp');">
+    <div class="overlay"></div>
 
-        <div class="overlay"></div>
+    <section class="outro-content glass-panel animate-fade-in">
+      <h1 class="credits-title">Chapter Complete</h1>
+      <p class="to-be-continued">To Be Continued...</p>
 
-        <section class="outro-content">
+      <div class="credits-section scrollable">
+        <h2>Fractured Self</h2>
+        <p>The Fall of Nader</p>
+        <br>
+        <h3>Original Novel Writer</h3>
+        <p>Farida</p>
+        <br>
+        <h3>Website Development</h3>
+        <p>Sahil & Antigravity IDE</p>
+        <br>
+        <h3>Scene Artwork</h3>
+        <p>Created for the visual novel adaptation</p>
+        <br>
+        <h3>Special Thanks</h3>
+        <p>To everyone who inspired this story.</p>
+      </div>
 
-            <h1 class="credits-title">
-                Chapter Complete
-            </h1>
+      <button id="home-btn" class="nav-btn ripple" style="width: 240px; margin: 0 auto; text-align: center; display: block;">
+        Back to Main Menu
+      </button>
+    </section>
+  </main>
 
-            <p class="to-be-continued">
-                To Be Continued...
-            </p>
+  <script>
+    // State restoration helpers for themes
+    window.addEventListener("load", () => {
+      const savedSettings = localStorage.getItem("fractured_self_settings");
+      if (savedSettings) {
+        try {
+          const settings = JSON.parse(savedSettings);
+          document.body.className = `theme-${settings.theme} font-${settings.font}`;
+        } catch(e) {}
+      }
+      document.body.style.opacity = "1";
+    });
 
-            <div class="credits-section">
-
-                <h2>Fractured Self</h2>
-                <p>The Fall of Nader</p>
-
-                <br>
-
-                <h3>Website Development</h3>
-                <p>Sahil</p>
-
-                <br>
-
-                <h3>Original Novel Writer</h3>
-                <p>Farida</p>
-
-                <br>
-
-                <h3>Scene Artwork</h3>
-                <p>Created for the visual novel adaptation</p>
-
-                <br>
-
-                <h3>Special Thanks</h3>
-                <p>To everyone who inspired this story.</p>
-
-            </div>
-
-            <button id="home-btn" class="menu-btn">
-                Back to Main Menu
-            </button>
-
-        </section>
-
-    </main>
-
-    <script>
-        // Fade in page
-        window.addEventListener("load", () => {
-            document.body.style.opacity = "1";
-        });
-
-        // Back to menu
-        document
-            .getElementById("home-btn")
-            .addEventListener("click", () => {
-
-                document.body.style.opacity = "0";
-
-                setTimeout(() => {
-                    window.location.href = "index.html";
-                }, 400);
-            });
-    </script>
+    // Exit transition
+    document.getElementById("home-btn").addEventListener("click", () => {
+      document.body.style.opacity = "0";
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 500);
+    });
+  </script>
 
 </body>
 </html>

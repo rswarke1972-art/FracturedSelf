@@ -1,0 +1,31 @@
+{
+  "name": "Fractured Self: The Fall of Nader (Definitive Edition)",
+  "short_name": "Fractured Self",
+  "description": "An immersive visual novel tracing the dramatic fall and journey of Nader.",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0d0d0d",
+  "theme_color": "#d4af37",
+  "orientation": "landscape",
+  "categories": ["games", "books"],
+  "icons": [
+    {
+      "src": "assets/icon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

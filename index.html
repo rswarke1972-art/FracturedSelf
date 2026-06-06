@@ -1,42 +1,1215 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fractured Self: The Fall of Nader</title>
+  <title>Fractured Self: The Fall of Nader (Definitive Edition)</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="theme-dark font-georgia size-medium">
 
-  <div class="menu-screen">
+  <!-- Cinematic Background -->
+  <div class="menu-background">
+    <div class="background-zoomer" style="background-image: url('assets/images/intro/menu-bg.webp');"></div>
     <div class="overlay"></div>
+    <!-- Ambient Canvas for Menu Particles -->
+    <canvas id="menu-particles"></canvas>
+  </div>
 
-    <div class="menu-content">
+  <!-- Main Menu Interface -->
+  <main class="menu-container">
+    <header class="menu-header">
       <h1 class="game-title">Fractured Self</h1>
       <p class="subtitle">The Fall of Nader</p>
+      <div class="edition-badge">Definitive Edition</div>
+    </header>
 
-      <div class="menu-buttons">
-        <button onclick="startStory()">Start Story</button>
-        <button onclick="openCredits()">Credits</button>
+    <div class="menu-layout">
+      <!-- Left side: Navigation buttons -->
+      <section class="menu-buttons" role="navigation">
+        <button id="btn-start" onclick="startNewGame()" class="nav-btn ripple">New Game</button>
+        <button id="btn-resume" onclick="resumeGame()" class="nav-btn resume-btn ripple hidden">
+          <div class="resume-title">Resume Story</div>
+          <div id="resume-details" class="resume-subtitle">Chapter 1 - Scene 1</div>
+        </button>
+        <button onclick="openModal('modal-chapters')" class="nav-btn ripple">Chapter Select</button>
+        <button onclick="openModal('modal-gallery')" class="nav-btn ripple">Gallery & Collections</button>
+        <button onclick="openModal('modal-stats')" class="nav-btn ripple">Statistics</button>
+        <button onclick="openModal('modal-settings')" class="nav-btn ripple">Settings</button>
+        <button onclick="openModal('modal-credits')" class="nav-btn ripple">Credits</button>
+        <button id="pwa-install-btn" class="nav-btn install-btn ripple hidden">Install Application</button>
+      </section>
+
+      <!-- Right side: Quick Info Card -->
+      <aside class="quick-info-card glass-panel">
+        <h3>Story Summary</h3>
+        <p>A gripping tale of wealth, pride, and redemption. Nader, a three-time national boxing champion and the heir to a vast travel empire, loses himself in a downward spiral of arrogance and indulgence. But a shadow stands ready to defy his throne, threatening to break his pride and change his world forever.</p>
+        <div class="stats-mini">
+          <div class="stat-mini-item">
+            <span class="label">Total Play Time</span>
+            <span id="mini-playtime" class="val">0h 0m</span>
+          </div>
+          <div class="stat-mini-item">
+            <span class="label">Story Progress</span>
+            <span id="mini-progress" class="val">0%</span>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ========================================== -->
+  <!-- MODAL: CHAPTER SELECT -->
+  <!-- ========================================== -->
+  <div id="modal-chapters" class="modal-overlay" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-box glass-panel wide-modal animate-fade-in">
+      <header class="modal-header">
+        <h2>Chapter Select</h2>
+        <button class="close-btn" onclick="closeModal('modal-chapters')">&times;</button>
+      </header>
+      <div class="modal-body scrollable">
+        <div class="chapters-grid">
+          <!-- Intro Card -->
+          <div class="chapter-card unlocked" id="card-intro" onclick="selectChapter('intro')">
+            <div class="chapter-card-bg" style="background-image: url('assets/images/intro/scene1.webp');"></div>
+            <div class="chapter-card-overlay"></div>
+            <div class="chapter-card-content">
+              <span class="chapter-num">Prologue</span>
+              <h3>The Arrow and the Dark</h3>
+              <p>Introduces the setting, Nader's unyielding command, and the shadow that rises to defy his throne.</p>
+              <div class="chapter-meta">
+                <span class="scenes-count">35 Scenes</span>
+                <span id="prog-intro" class="chapter-progress">Progress: 0%</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chapter 1 Card -->
+          <div class="chapter-card locked" id="card-ch1" onclick="selectChapter('chapter1')">
+            <div class="chapter-card-bg" style="background-image: url('assets/images/chapter1/scene1.webp');"></div>
+            <div class="chapter-card-overlay"></div>
+            <div class="chapter-card-content">
+              <span class="chapter-num">Chapter I</span>
+              <h3>The Fall from Grace</h3>
+              <p>Fawzy al-Damanhouri demands discipline from his champion son, while Sabah prays for Nader's lost soul.</p>
+              <div class="chapter-meta">
+                <span class="scenes-count">191 Scenes</span>
+                <span id="prog-ch1" class="chapter-progress">Progress: 0%</span>
+              </div>
+            </div>
+            <div class="lock-indicator"><span class="lock-icon">🔒</span> Locked</div>
+          </div>
+
+          <!-- Chapter 2 Card -->
+          <div class="chapter-card locked" id="card-ch2" onclick="selectChapter('chapter2')">
+            <div class="chapter-card-bg" style="background-image: url('assets/images/chapter2/scene1.webp');"></div>
+            <div class="chapter-card-overlay"></div>
+            <div class="chapter-card-content">
+              <span class="chapter-num">Chapter II</span>
+              <h3>The Fractured Mirror</h3>
+              <p>Nader crosses paths with Haidy. Ambition, pride, and the harsh reflections of reality collide.</p>
+              <div class="chapter-meta">
+                <span class="scenes-count">505 Scenes</span>
+                <span id="prog-ch2" class="chapter-progress">Progress: 0%</span>
+              </div>
+            </div>
+            <div class="lock-indicator"><span class="lock-icon">🔒</span> Locked</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- ========================================== -->
+  <!-- MODAL: GALLERY & COLLECTIONS -->
+  <!-- ========================================== -->
+  <div id="modal-gallery" class="modal-overlay" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-box glass-panel wide-modal animate-fade-in">
+      <header class="modal-header">
+        <h2>Gallery & Collections</h2>
+        <button class="close-btn" onclick="closeModal('modal-gallery')">&times;</button>
+      </header>
+      
+      <!-- Gallery Tabs -->
+      <nav class="gallery-tabs">
+        <button id="tab-cg" class="tab-btn active" onclick="switchGalleryTab('cg')">🖼 CG Gallery</button>
+        <button id="tab-replay" class="tab-btn" onclick="switchGalleryTab('replay')">🎬 Scene Replay</button>
+        <button id="tab-music" class="tab-btn" onclick="switchGalleryTab('music')">🎵 Music Room</button>
+      </nav>
+
+      <div class="modal-body scrollable">
+        <!-- CG Gallery Tab -->
+        <section id="panel-cg" class="gallery-panel active">
+          <div class="gallery-subfilters">
+            <button class="subfilter-btn active" onclick="filterCGs('all')">All</button>
+            <button class="subfilter-btn" onclick="filterCGs('intro')">Intro</button>
+            <button class="subfilter-btn" onclick="filterCGs('chapter1')">Chapter 1</button>
+            <button class="subfilter-btn" onclick="filterCGs('chapter2')">Chapter 2</button>
+          </div>
+          <div class="cg-grid" id="cg-grid-container">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </section>
+
+        <!-- Scene Replay Tab -->
+        <section id="panel-replay" class="gallery-panel">
+          <div class="replay-list" id="replay-list-container">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </section>
+
+        <!-- Music Room Tab -->
+        <section id="panel-music" class="gallery-panel">
+          <div class="music-room-container">
+            <div class="music-player-controls glass-panel">
+              <div class="track-details">
+                <span class="now-playing-label">Now Playing</span>
+                <h4 id="music-track-title">Silent Night (Ambient Intro)</h4>
+                <p id="music-track-chapter">Prologue</p>
+              </div>
+              <div class="player-buttons">
+                <button id="music-play-btn" onclick="toggleMusicRoomPlayback()" class="control-circle-btn">▶</button>
+                <button onclick="stopMusicRoomPlayback()" class="control-circle-btn">⏹</button>
+              </div>
+              <div class="volume-slider-group">
+                <span>🔊</span>
+                <input type="range" id="music-room-volume" min="0" max="100" value="50" oninput="changeMusicRoomVolume(this.value)" />
+              </div>
+            </div>
+            <div class="music-tracks-list" id="music-list-container">
+              <!-- Dynamically populated via JS -->
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fullscreen CG Viewer -->
+  <div id="cg-lightbox" class="lightbox-overlay" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Fullscreen CG" />
+    <span class="lightbox-close">&times;</span>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: STATISTICS -->
+  <!-- ========================================== -->
+  <div id="modal-stats" class="modal-overlay" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-box glass-panel animate-fade-in">
+      <header class="modal-header">
+        <h2>Story Statistics</h2>
+        <button class="close-btn" onclick="closeModal('modal-stats')">&times;</button>
+      </header>
+      <div class="modal-body">
+        <div class="stats-container">
+          <div class="stat-row">
+            <span class="label">Total Story Completion</span>
+            <span id="stat-total-percent" class="value text-gold">0%</span>
+          </div>
+          <div class="stat-progress-bar">
+            <div id="stat-bar-fill" class="fill" style="width: 0%;"></div>
+          </div>
+          
+          <div class="stat-grid">
+            <div class="stat-card glass-panel">
+              <div class="stat-num" id="stat-scenes-read">0 / 731</div>
+              <div class="stat-label">Scenes Read</div>
+            </div>
+            <div class="stat-card glass-panel">
+              <div class="stat-num" id="stat-playtime">0h 0m 0s</div>
+              <div class="stat-label">Play Time</div>
+            </div>
+            <div class="stat-card glass-panel">
+              <div class="stat-num" id="stat-choices">0</div>
+              <div class="stat-label">Choices Made</div>
+            </div>
+            <div class="stat-card glass-panel">
+              <div class="stat-num" id="stat-cgs-unlocked">0 / 89</div>
+              <div class="stat-label">CGs Unlocked</div>
+            </div>
+          </div>
+
+          <h3 class="section-title">Character Memory & Flags</h3>
+          <div class="flag-list">
+            <div class="flag-item">
+              <span class="flag-label">Trust (Nader)</span>
+              <div class="flag-bar"><div id="flag-bar-trust" class="flag-fill" style="width: 50%;"></div></div>
+              <span id="flag-val-trust" class="flag-val">0</span>
+            </div>
+            <div class="flag-item">
+              <span class="flag-label">Guilt (Nader)</span>
+              <div class="flag-bar"><div id="flag-bar-guilt" class="flag-fill" style="width: 50%;"></div></div>
+              <span id="flag-val-guilt" class="flag-val">0</span>
+            </div>
+            <div class="flag-item">
+              <span class="flag-label">Hope (Sabaa/Redemption)</span>
+              <div class="flag-bar"><div id="flag-bar-hope" class="flag-fill" style="width: 50%;"></div></div>
+              <span id="flag-val-hope" class="flag-val">0</span>
+            </div>
+            <div class="flag-item">
+              <span class="flag-label">Fear (Fawzy/Arrogance)</span>
+              <div class="flag-bar"><div id="flag-bar-fear" class="flag-fill" style="width: 50%;"></div></div>
+              <span id="flag-val-fear" class="flag-val">0</span>
+            </div>
+            <div class="flag-item">
+              <span class="flag-label">Haidy Relationship</span>
+              <div class="flag-bar"><div id="flag-bar-relationship" class="flag-fill" style="width: 50%;"></div></div>
+              <span id="flag-val-relationship" class="flag-val">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: SETTINGS (ACCESSIBILITY & AUDIO) -->
+  <!-- ========================================== -->
+  <div id="modal-settings" class="modal-overlay" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-box glass-panel animate-fade-in">
+      <header class="modal-header">
+        <h2>Game Settings</h2>
+        <button class="close-btn" onclick="closeModal('modal-settings')">&times;</button>
+      </header>
+      <div class="modal-body scrollable">
+        <form id="settings-form" onsubmit="event.preventDefault();">
+          
+          <!-- Section: Styling Themes -->
+          <div class="setting-group">
+            <h3>Visual Theme</h3>
+            <div class="theme-options">
+              <label class="theme-option dark active" onclick="setThemeOption('dark')">
+                <input type="radio" name="theme" value="dark" checked style="display:none;" />
+                Dark
+              </label>
+              <label class="theme-option light" onclick="setThemeOption('light')">
+                <input type="radio" name="theme" value="light" style="display:none;" />
+                Light
+              </label>
+              <label class="theme-option sepia" onclick="setThemeOption('sepia')">
+                <input type="radio" name="theme" value="sepia" style="display:none;" />
+                Sepia
+              </label>
+              <label class="theme-option high-contrast" onclick="setThemeOption('high-contrast')">
+                <input type="radio" name="theme" value="high-contrast" style="display:none;" />
+                Contrast
+              </label>
+            </div>
+          </div>
+
+          <!-- Section: Font Family -->
+          <div class="setting-group">
+            <h3>Font Family</h3>
+            <div class="select-wrapper">
+              <select id="setting-font" onchange="updateSettingsFromUI()">
+                <option value="georgia">Georgia (Literary Classical)</option>
+                <option value="inter">Inter (Modern Clean)</option>
+                <option value="lora">Lora (Sleek Serif)</option>
+                <option value="cinzel">Cinzel (Cinematic Elegant)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Section: Text Size -->
+          <div class="setting-group">
+            <h3>Dialogue Text Size</h3>
+            <div class="toggle-buttons">
+              <button type="button" class="toggle-btn" id="size-small" onclick="setTextSizeOption('small')">Small</button>
+              <button type="button" class="toggle-btn active" id="size-medium" onclick="setTextSizeOption('medium')">Medium</button>
+              <button type="button" class="toggle-btn" id="size-large" onclick="setTextSizeOption('large')">Large</button>
+              <button type="button" class="toggle-btn" id="size-xlarge" onclick="setTextSizeOption('xlarge')">Extra Large</button>
+            </div>
+          </div>
+
+          <!-- Section: Text Speed -->
+          <div class="setting-group">
+            <h3>Typewriter Text Speed</h3>
+            <div class="toggle-buttons">
+              <button type="button" class="toggle-btn" id="speed-slow" onclick="setTextSpeedOption('slow')">Slow</button>
+              <button type="button" class="toggle-btn active" id="speed-medium" onclick="setTextSpeedOption('medium')">Medium</button>
+              <button type="button" class="toggle-btn" id="speed-fast" onclick="setTextSpeedOption('fast')">Fast</button>
+              <button type="button" class="toggle-btn" id="speed-instant" onclick="setTextSpeedOption('instant')">Instant</button>
+            </div>
+          </div>
+
+          <!-- Section: Auto-Advance Delay -->
+          <div class="setting-group">
+            <h3>Auto-Play Delay (seconds)</h3>
+            <div class="slider-group">
+              <input type="range" id="setting-auto-delay" min="1" max="6" step="0.5" value="2.5" oninput="updateDelayLabel(this.value); updateSettingsFromUI();" />
+              <span id="delay-label">2.5s</span>
+            </div>
+          </div>
+
+          <!-- Section: Sound & Music -->
+          <div class="setting-group">
+            <h3>Audio Volumes</h3>
+            <div class="volume-slider-group">
+              <span class="vol-label">Music Volume</span>
+              <input type="range" id="setting-vol-music" min="0" max="100" value="50" oninput="updateSettingsFromUI()" />
+              <span id="vol-music-val">50%</span>
+            </div>
+            <div class="volume-slider-group" style="margin-top: 12px;">
+              <span class="vol-label">Sound Effects</span>
+              <input type="range" id="setting-vol-sfx" min="0" max="100" value="50" oninput="updateSettingsFromUI()" />
+              <span id="vol-sfx-val">50%</span>
+            </div>
+            <div class="checkbox-group" style="margin-top: 15px;">
+              <input type="checkbox" id="setting-mute" onchange="updateSettingsFromUI()" />
+              <label for="setting-mute">Mute All Audio</label>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: CREDITS -->
+  <!-- ========================================== -->
+  <div id="modal-credits" class="modal-overlay" onclick="closeModalOnBackdrop(event)">
+    <div class="modal-box glass-panel animate-fade-in">
+      <header class="modal-header">
+        <h2>Credits</h2>
+        <button class="close-btn" onclick="closeModal('modal-credits')">&times;</button>
+      </header>
+      <div class="modal-body scrollable text-center">
+        <h3 class="text-gold" style="font-size: 1.5rem; margin-bottom: 8px;">Fractured Self</h3>
+        <p style="font-style: italic; margin-bottom: 25px;">The Fall of Nader</p>
+        
+        <div class="credit-item">
+          <h4>Original Novel Writer</h4>
+          <p>Farida</p>
+        </div>
+        <div class="credit-item">
+          <h4>Website Development</h4>
+          <p>Sahil & Antigravity IDE</p>
+        </div>
+        <div class="credit-item">
+          <h4>Scene Artwork</h4>
+          <p>Created for the visual novel adaptation</p>
+        </div>
+        <div class="credit-item">
+          <h4>Definitive Edition Upgrade</h4>
+          <p>Enhanced Cinematic Story Engine</p>
+        </div>
+        <div class="credit-item" style="margin-top: 30px;">
+          <p class="text-gold" style="font-size: 0.9rem;">Special Thanks to everyone who inspired this story.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- JAVASCRIPT FOR MAIN MENU CORE LOGIC -->
+  <!-- ========================================== -->
   <script>
-  function startStory() {
-    window.location.href = "story.html";
-  }
+    // State Variables for Main Menu
+    let settings = {
+      theme: 'dark',
+      font: 'georgia',
+      size: 'medium',
+      speed: 'medium',
+      autoSpeed: 2500,
+      volume: 50,
+      sfxVolume: 50,
+      mute: false
+    };
 
-  function openCredits() {
-    window.location.href = "outro.html";
-  }
+    let stats = {
+      playTime: 0,
+      scenesRead: 0,
+      choicesMade: 0,
+      unlockedCGs: [],
+      unlockedScenes: [],
+      unlockedMusic: []
+    };
 
-  // Make page visible
-  window.addEventListener("load", () => {
-    document.body.style.opacity = "1";
-  });
-</script>
+    let flags = {
+      trust: 0,
+      guilt: 0,
+      hope: 0,
+      fear: 0,
+      relationship: 0
+    };
 
+    let autosave = null;
+    let menuSynth = null;
+    let isMenuSynthPlaying = false;
+
+    // PWA Install Prompt state
+    let deferredPrompt = null;
+
+    // Music Room Track list definition
+    const TRACKS = [
+      { id: 'intro', title: 'The Arrow and the Dark (Theme)', chapter: 'Prologue', note: 'Ethereal, mysterious drone in G minor' },
+      { id: 'chapter1', title: 'The Fall from Grace (Theme)', chapter: 'Chapter I', note: 'Tense, dramatic drone in C minor' },
+      { id: 'chapter2', title: 'The Fractured Mirror (Theme)', chapter: 'Chapter II', note: 'Nostalgic, calm ambient pad in F major' },
+      { id: 'tension', title: 'Echoes of Regret', chapter: 'Dramatic Ambiance', note: 'Heavy, coiling minor scale synthesizer' }
+    ];
+
+    // Replay Scenes definition
+    const REPLAY_SCENES = [
+      { index: 0, title: 'Prologue: You are Released', description: 'The philosophical opening outlining Nader\'s pride.', chapter: 'Prologue' },
+      { index: 35, title: 'Chapter 1: The Mansion of Maadi', description: 'Omniyah orders Sabah to awaken the champion.', chapter: 'Chapter 1' },
+      { index: 78, title: 'Chapter 1: Confronting Fawzy', description: 'Nader meets his strict father al-Damanhouri.', chapter: 'Chapter 1' },
+      { index: 226, title: 'Chapter 2: The Path of Ambition', description: 'Nader steps into the corporate world.', chapter: 'Chapter 2' },
+      { index: 395, title: 'Chapter 2: Crossing Paths with Haidy', description: 'Nader meets the respectable and reserved woman.', chapter: 'Chapter 2' }
+    ];
+
+    // ----------------------------------------------------
+    // INITIALIZATION
+    // ----------------------------------------------------
+    window.addEventListener('load', () => {
+      // Load saved settings & stats
+      loadAllData();
+      
+      // Register Service Worker
+      registerServiceWorker();
+
+      // PWA Install Event Handler
+      window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        const installBtn = document.getElementById('pwa-install-btn');
+        if (installBtn) installBtn.classList.remove('hidden');
+      });
+
+      // Hook up PWA install click
+      const installBtn = document.getElementById('pwa-install-btn');
+      if (installBtn) {
+        installBtn.addEventListener('click', () => {
+          if (deferredPrompt) {
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+              if (choiceResult.outcome === 'accepted') {
+                console.log('User accepted PWA install');
+              }
+              deferredPrompt = null;
+              installBtn.classList.add('hidden');
+            });
+          }
+        });
+      }
+
+      // Initialize menu background particles canvas
+      initMenuParticles();
+
+      // Fade in page
+      document.body.style.opacity = '1';
+
+      // Start quiet ambient music loop (Synthesized Web Audio to avoid CORS/network checks)
+      startMenuAmbientMusic();
+    });
+
+    // ----------------------------------------------------
+    // DATA LOADERS & PARSERS
+    // ----------------------------------------------------
+    function loadAllData() {
+      // Load Settings
+      const savedSettings = localStorage.getItem('fractured_self_settings');
+      if (savedSettings) {
+        try {
+          settings = { ...settings, ...JSON.parse(savedSettings) };
+        } catch(e) {}
+      }
+      applySettingsToDOM();
+
+      // Load Stats
+      const savedStats = localStorage.getItem('fractured_self_stats');
+      if (savedStats) {
+        try {
+          stats = { ...stats, ...JSON.parse(savedStats) };
+        } catch(e) {}
+      }
+
+      // Load Flags
+      const savedFlags = localStorage.getItem('fractured_self_flags');
+      if (savedFlags) {
+        try {
+          flags = { ...flags, ...JSON.parse(savedFlags) };
+        } catch(e) {}
+      }
+
+      // Load Autosave
+      const savedAutosave = localStorage.getItem('fractured_self_autosave');
+      if (savedAutosave) {
+        try {
+          autosave = JSON.parse(savedAutosave);
+          const resumeBtn = document.getElementById('btn-resume');
+          const resumeDetails = document.getElementById('resume-details');
+          
+          if (resumeBtn && resumeDetails && autosave) {
+            resumeBtn.classList.remove('hidden');
+            const chName = autosave.chapterName || "Prologue";
+            const scIndex = autosave.currentScene || 0;
+            const formattedDate = autosave.date ? new Date(autosave.date).toLocaleDateString() : '';
+            resumeDetails.textContent = `${chName} — Scene ${scIndex} (${formattedDate})`;
+          }
+        } catch(e) {}
+      }
+
+      updateUIStatistics();
+      setupChapterUnlocks();
+    }
+
+    function saveSettings() {
+      localStorage.setItem('fractured_self_settings', JSON.stringify(settings));
+      applySettingsToDOM();
+    }
+
+    function applySettingsToDOM() {
+      // Apply theme class
+      document.body.className = `theme-${settings.theme} font-${settings.font} size-${settings.size}`;
+
+      // Sync UI elements in Settings form
+      document.getElementById('setting-font').value = settings.font;
+      
+      // Theme radios
+      document.querySelectorAll('.theme-option').forEach(el => {
+        el.classList.remove('active');
+        if (el.querySelector('input').value === settings.theme) {
+          el.classList.add('active');
+        }
+      });
+
+      // Size buttons
+      document.querySelectorAll('[id^="size-"]').forEach(btn => btn.classList.remove('active'));
+      const activeSizeBtn = document.getElementById(`size-${settings.size}`);
+      if (activeSizeBtn) activeSizeBtn.classList.add('active');
+
+      // Speed buttons
+      document.querySelectorAll('[id^="speed-"]').forEach(btn => btn.classList.remove('active'));
+      const activeSpeedBtn = document.getElementById(`speed-${settings.speed}`);
+      if (activeSpeedBtn) activeSpeedBtn.classList.add('active');
+
+      // Audio values
+      document.getElementById('setting-vol-music').value = settings.volume;
+      document.getElementById('vol-music-val').textContent = `${settings.volume}%`;
+      document.getElementById('setting-vol-sfx').value = settings.sfxVolume;
+      document.getElementById('vol-sfx-val').textContent = `${settings.sfxVolume}%`;
+      document.getElementById('setting-mute').checked = settings.mute;
+
+      // Auto delay slider
+      const delaySec = (settings.autoSpeed / 1000).toFixed(1);
+      document.getElementById('setting-auto-delay').value = delaySec;
+      document.getElementById('delay-label').textContent = `${delaySec}s`;
+
+      // Update synth volume if playing
+      if (isMenuSynthPlaying && menuSynth) {
+        updateSynthVolume();
+      }
+    }
+
+    function updateSettingsFromUI() {
+      settings.font = document.getElementById('setting-font').value;
+      settings.volume = parseInt(document.getElementById('setting-vol-music').value);
+      settings.sfxVolume = parseInt(document.getElementById('setting-vol-sfx').value);
+      settings.mute = document.getElementById('setting-mute').checked;
+      
+      const delayVal = parseFloat(document.getElementById('setting-auto-delay').value);
+      settings.autoSpeed = Math.round(delayVal * 1000);
+
+      saveSettings();
+    }
+
+    function setThemeOption(theme) {
+      settings.theme = theme;
+      saveSettings();
+    }
+
+    function setTextSizeOption(size) {
+      settings.size = size;
+      saveSettings();
+    }
+
+    function setTextSpeedOption(speed) {
+      settings.speed = speed;
+      saveSettings();
+    }
+
+    function updateDelayLabel(val) {
+      document.getElementById('delay-label').textContent = `${val}s`;
+    }
+
+    // ----------------------------------------------------
+    // STATISTICS & PROGRESS
+    // ----------------------------------------------------
+    function updateUIStatistics() {
+      // Calculate percentages
+      const totalScenes = 731;
+      const countRead = stats.scenesRead || 0;
+      const progressPercent = Math.min(100, Math.round((countRead / totalScenes) * 100));
+
+      // Home mini card
+      document.getElementById('mini-progress').textContent = `${progressPercent}%`;
+      const playHours = Math.floor(stats.playTime / 3600);
+      const playMins = Math.floor((stats.playTime % 3600) / 60);
+      document.getElementById('mini-playtime').textContent = `${playHours}h ${playMins}m`;
+
+      // Stats Modal values
+      document.getElementById('stat-total-percent').textContent = `${progressPercent}%`;
+      document.getElementById('stat-bar-fill').style.width = `${progressPercent}%`;
+      document.getElementById('stat-scenes-read').textContent = `${countRead} / ${totalScenes}`;
+
+      const playSecs = stats.playTime % 60;
+      document.getElementById('stat-playtime').textContent = `${playHours}h ${playMins}m ${playSecs}s`;
+      document.getElementById('stat-choices').textContent = stats.choicesMade || 0;
+      
+      const unlockedCGCount = (stats.unlockedCGs || []).length;
+      document.getElementById('stat-cgs-unlocked').textContent = `${unlockedCGCount} / 89`;
+
+      // Character flags
+      const maxFlagVal = 5; // bounds for UI visualization
+      const getFlagPercent = (val) => {
+        const percent = 50 + (val / maxFlagVal) * 50; // map -5 to +5 range onto 0% to 100%
+        return Math.max(0, Math.min(100, percent));
+      };
+
+      document.getElementById('flag-val-trust').textContent = flags.trust;
+      document.getElementById('flag-bar-trust').style.width = `${getFlagPercent(flags.trust)}%`;
+
+      document.getElementById('flag-val-guilt').textContent = flags.guilt;
+      document.getElementById('flag-bar-guilt').style.width = `${getFlagPercent(flags.guilt)}%`;
+
+      document.getElementById('flag-val-hope').textContent = flags.hope;
+      document.getElementById('flag-bar-hope').style.width = `${getFlagPercent(flags.hope)}%`;
+
+      document.getElementById('flag-val-fear').textContent = flags.fear;
+      document.getElementById('flag-bar-fear').style.width = `${getFlagPercent(flags.fear)}%`;
+
+      document.getElementById('flag-val-relationship').textContent = flags.relationship;
+      document.getElementById('flag-bar-relationship').style.width = `${getFlagPercent(flags.relationship)}%`;
+    }
+
+    function setupChapterUnlocks() {
+      // Intro always unlocked.
+      // Chapter 1 unlocks if user read index >= 35 (or has completed prologue)
+      // Chapter 2 unlocks if user read index >= 226 (or has completed chapter 1)
+      const maxSceneIndex = Math.max(0, ...stats.unlockedScenes || [0]);
+      
+      const ch1Card = document.getElementById('card-ch1');
+      const ch2Card = document.getElementById('card-ch2');
+
+      const isCh1Unlocked = maxSceneIndex >= 35 || stats.scenesRead >= 35;
+      const isCh2Unlocked = maxSceneIndex >= 226 || stats.scenesRead >= 226;
+
+      // Card 1
+      if (isCh1Unlocked) {
+        ch1Card.classList.remove('locked');
+        ch1Card.classList.add('unlocked');
+      } else {
+        ch1Card.classList.add('locked');
+        ch1Card.classList.remove('unlocked');
+      }
+
+      // Card 2
+      if (isCh2Unlocked) {
+        ch2Card.classList.remove('locked');
+        ch2Card.classList.add('unlocked');
+      } else {
+        ch2Card.classList.add('locked');
+        ch2Card.classList.remove('unlocked');
+      }
+
+      // Chapter progress text
+      const totalIntro = 35;
+      const totalCh1 = 191;
+      const totalCh2 = 505;
+
+      // Calculate how many scenes are unlocked in each range
+      let countIntro = 0;
+      let countCh1 = 0;
+      let countCh2 = 0;
+
+      (stats.unlockedScenes || []).forEach(idx => {
+        if (idx < 35) countIntro++;
+        else if (idx < 226) countCh1++;
+        else countCh2++;
+      });
+
+      document.getElementById('prog-intro').textContent = `Progress: ${Math.round((countIntro / totalIntro) * 100)}%`;
+      document.getElementById('prog-ch1').textContent = isCh1Unlocked ? `Progress: ${Math.round((countCh1 / totalCh1) * 100)}%` : 'Locked';
+      document.getElementById('prog-ch2').textContent = isCh2Unlocked ? `Progress: ${Math.round((countCh2 / totalCh2) * 100)}%` : 'Locked';
+    }
+
+    // ----------------------------------------------------
+    // STORY ROUTING
+    // ----------------------------------------------------
+    function startNewGame() {
+      document.body.style.opacity = '0';
+      localStorage.removeItem('fractured_self_current_state'); // Clear current playthrough state
+      setTimeout(() => {
+        window.location.href = "story.html?start=0";
+      }, 500);
+    }
+
+    function resumeGame() {
+      if (autosave) {
+        document.body.style.opacity = '0';
+        setTimeout(() => {
+          window.location.href = `story.html?load=autosave`;
+        }, 500);
+      }
+    }
+
+    function selectChapter(chapId) {
+      const card = document.getElementById(`card-${chapId === 'intro' ? 'intro' : chapId === 'chapter1' ? 'ch1' : 'ch2'}`);
+      if (card.classList.contains('locked')) {
+        alert("Unlock this chapter by reading through the previous chapter!");
+        return;
+      }
+
+      let startScene = 0;
+      if (chapId === 'chapter1') startScene = 35;
+      else if (chapId === 'chapter2') startScene = 226;
+
+      document.body.style.opacity = '0';
+      setTimeout(() => {
+        window.location.href = `story.html?start=${startScene}`;
+      }, 500);
+    }
+
+    // ----------------------------------------------------
+    // MODAL CONTROL
+    // ----------------------------------------------------
+    function openModal(id) {
+      document.getElementById(id).classList.add('active');
+      if (id === 'modal-gallery') {
+        populateCGs();
+        populateReplays();
+        populateMusic();
+      }
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('active');
+    }
+
+    function closeModalOnBackdrop(e) {
+      if (e.target.classList.contains('modal-overlay')) {
+        e.target.classList.remove('active');
+      }
+    }
+
+    // ----------------------------------------------------
+    // GALLERY TABS & POPULATORS
+    // ----------------------------------------------------
+    function switchGalleryTab(tabName) {
+      document.querySelectorAll('.gallery-tabs .tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.gallery-panel').forEach(panel => panel.classList.remove('active'));
+
+      document.getElementById(`tab-${tabName}`).classList.add('active');
+      document.getElementById(`panel-${tabName}`).classList.add('active');
+    }
+
+    // CG GRID SYSTEM
+    let activeCgFilter = 'all';
+    function populateCGs() {
+      const container = document.getElementById('cg-grid-container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      // Set of seen CGs
+      const seenCGs = new Set(stats.unlockedCGs || []);
+
+      // Build our list of CGs based on stories.json directories
+      // We know there are intro (scene1-7), chapter1 (scene1-24), and chapter2 (scene1-58)
+      const cgs = [];
+      for(let i=1; i<=7; i++) cgs.push({ path: `assets/images/intro/scene${i}.webp`, type: 'intro', num: i });
+      for(let i=1; i<=24; i++) cgs.push({ path: `assets/images/chapter1/scene${i}.webp`, type: 'chapter1', num: i });
+      for(let i=1; i<=58; i++) cgs.push({ path: `assets/images/chapter2/scene${i}.webp`, type: 'chapter2', num: i });
+
+      const filteredCGs = cgs.filter(cg => activeCgFilter === 'all' || cg.type === activeCgFilter);
+
+      filteredCGs.forEach(cg => {
+        const gridItem = document.createElement('div');
+        gridItem.className = 'cg-item glass-panel';
+
+        const hasUnlocked = seenCGs.has(cg.path);
+
+        if (hasUnlocked) {
+          gridItem.style.backgroundImage = `url('${cg.path}')`;
+          gridItem.classList.add('unlocked');
+          gridItem.onclick = () => openLightbox(cg.path);
+
+          const badge = document.createElement('span');
+          badge.className = 'cg-badge';
+          badge.textContent = `${cg.type.toUpperCase()} #${cg.num}`;
+          gridItem.appendChild(badge);
+        } else {
+          gridItem.classList.add('locked');
+          gridItem.innerHTML = `<div class="lock-overlay"><span class="lock-icon">🔒</span></div>`;
+        }
+
+        container.appendChild(gridItem);
+      });
+    }
+
+    function filterCGs(filter) {
+      document.querySelectorAll('.gallery-subfilters .subfilter-btn').forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.textContent.toLowerCase().includes(filter)) btn.classList.add('active');
+        if (filter === 'all' && btn.textContent.toLowerCase() === 'all') btn.classList.add('active');
+      });
+      activeCgFilter = filter;
+      populateCGs();
+    }
+
+    function openLightbox(src) {
+      const lb = document.getElementById('cg-lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      lb.classList.add('active');
+    }
+
+    function closeLightbox() {
+      document.getElementById('cg-lightbox').classList.remove('active');
+    }
+
+    // SCENE REPLAYS
+    function populateReplays() {
+      const container = document.getElementById('replay-list-container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      const maxSceneIndex = Math.max(0, ...stats.unlockedScenes || [0]);
+
+      REPLAY_SCENES.forEach(scene => {
+        const item = document.createElement('div');
+        item.className = 'replay-item glass-panel';
+        
+        const isUnlocked = maxSceneIndex >= scene.index || stats.scenesRead > scene.index;
+
+        if (isUnlocked) {
+          item.classList.add('unlocked');
+          item.innerHTML = `
+            <div class="replay-details">
+              <h4>${scene.title}</h4>
+              <p>${scene.description}</p>
+            </div>
+            <button onclick="launchReplay(${scene.index})" class="replay-btn ripple">Watch Scene</button>
+          `;
+        } else {
+          item.classList.add('locked');
+          item.innerHTML = `
+            <div class="replay-details">
+              <h4>Locked Scene</h4>
+              <p>Continue reading through the story to unlock this replay point.</p>
+            </div>
+            <div class="lock-badge">🔒 Locked</div>
+          `;
+        }
+        container.appendChild(item);
+      });
+    }
+
+    function launchReplay(sceneIndex) {
+      document.body.style.opacity = '0';
+      setTimeout(() => {
+        window.location.href = `story.html?start=${sceneIndex}&replay=true`;
+      }, 500);
+    }
+
+    // MUSIC ROOM PLAYER
+    let activeMusicId = null;
+    let musicOsc = null;
+    let musicAmp = null;
+    let audioCtx = null;
+
+    function populateMusic() {
+      const container = document.getElementById('music-list-container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      // Music seen/heard
+      const unlockedMusic = new Set(stats.unlockedMusic || ['intro']); // Intro theme unlocked by default
+
+      TRACKS.forEach(track => {
+        const item = document.createElement('div');
+        item.className = 'music-item glass-panel';
+        
+        const isUnlocked = unlockedMusic.has(track.id);
+
+        if (isUnlocked) {
+          item.classList.add('unlocked');
+          if (activeMusicId === track.id && isMenuSynthPlaying) {
+            item.classList.add('playing');
+          }
+
+          item.innerHTML = `
+            <div class="music-info">
+              <h4>${track.title}</h4>
+              <p>${track.note} (${track.chapter})</p>
+            </div>
+            <button onclick="selectMusicTrack('${track.id}')" class="play-track-btn">${activeMusicId === track.id && isMenuSynthPlaying ? '⏸' : '▶'}</button>
+          `;
+        } else {
+          item.classList.add('locked');
+          item.innerHTML = `
+            <div class="music-info">
+              <h4>Locked Melody</h4>
+              <p>Encounter this track in the story to unlock.</p>
+            </div>
+            <div class="lock-badge">🔒 Locked</div>
+          `;
+        }
+        container.appendChild(item);
+      });
+    }
+
+    function selectMusicTrack(trackId) {
+      // Toggle play/pause if already active
+      if (activeMusicId === trackId) {
+        toggleMusicRoomPlayback();
+        return;
+      }
+
+      // Stop previous
+      stopMusicRoomPlayback();
+
+      activeMusicId = trackId;
+      const track = TRACKS.find(t => t.id === trackId);
+      document.getElementById('music-track-title').textContent = track.title;
+      document.getElementById('music-track-chapter').textContent = track.chapter;
+
+      // Start new synthesis
+      isMenuSynthPlaying = true;
+      startSynthesizedAmbiance(trackId);
+      populateMusic();
+    }
+
+    function toggleMusicRoomPlayback() {
+      if (!activeMusicId) {
+        selectMusicTrack('intro');
+        return;
+      }
+
+      if (isMenuSynthPlaying) {
+        isMenuSynthPlaying = false;
+        pauseSynthesizedAmbiance();
+        document.getElementById('music-play-btn').textContent = '▶';
+      } else {
+        isMenuSynthPlaying = true;
+        resumeSynthesizedAmbiance();
+        document.getElementById('music-play-btn').textContent = '⏸';
+      }
+      populateMusic();
+    }
+
+    function stopMusicRoomPlayback() {
+      isMenuSynthPlaying = false;
+      stopSynthesizedAmbiance();
+      document.getElementById('music-play-btn').textContent = '▶';
+      activeMusicId = null;
+      document.getElementById('music-track-title').textContent = 'Select a track';
+      document.getElementById('music-track-chapter').textContent = '';
+      populateMusic();
+    }
+
+    function changeMusicRoomVolume(val) {
+      settings.volume = parseInt(val);
+      document.getElementById('setting-vol-music').value = val;
+      document.getElementById('vol-music-val').textContent = `${val}%`;
+      saveSettings();
+      updateSynthVolume();
+    }
+
+    // ----------------------------------------------------
+    // WEB AUDIO SYNTHESIZER
+    // ----------------------------------------------------
+    function getSynthFrequency(trackId) {
+      switch(trackId) {
+        case 'intro': return 98.00; // G2 (G minor drone)
+        case 'chapter1': return 130.81; // C3 (C minor drone)
+        case 'chapter2': return 87.31; // F2 (F major drone)
+        case 'tension': return 110.00; // A2 (tension scale)
+        default: return 98.00;
+      }
+    }
+
+    function startMenuAmbientMusic() {
+      // Play intro track automatically on start
+      activeMusicId = 'intro';
+      isMenuSynthPlaying = true;
+      startSynthesizedAmbiance('intro');
+    }
+
+    function startSynthesizedAmbiance(trackId) {
+      if (settings.mute) return;
+
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!audioCtx) audioCtx = new AudioContext();
+        
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+
+        // Setup double oscillators for stereo rich ambient chord
+        const baseFreq = getSynthFrequency(trackId);
+        
+        musicOsc = audioCtx.createOscillator();
+        const subOsc = audioCtx.createOscillator();
+        const fifthOsc = audioCtx.createOscillator();
+
+        musicAmp = audioCtx.createGain();
+
+        // Wave types
+        musicOsc.type = 'triangle';
+        subOsc.type = 'sawtooth';
+        fifthOsc.type = 'sine';
+
+        // Detuning for chorusing
+        musicOsc.frequency.setValueAtTime(baseFreq, audioCtx.currentTime);
+        subOsc.frequency.setValueAtTime(baseFreq * 0.5, audioCtx.currentTime); // sub octave
+        fifthOsc.frequency.setValueAtTime(baseFreq * 1.5, audioCtx.currentTime); // fifth
+
+        // Connect
+        musicOsc.connect(musicAmp);
+        subOsc.connect(musicAmp);
+        fifthOsc.connect(musicAmp);
+        
+        musicAmp.connect(audioCtx.destination);
+
+        // Vol gain envelope fade-in
+        const targetGain = (settings.volume / 100) * 0.15; // keep soft
+        musicAmp.gain.setValueAtTime(0, audioCtx.currentTime);
+        musicAmp.gain.linearRampToValueAtTime(targetGain, audioCtx.currentTime + 3);
+
+        musicOsc.start();
+        subOsc.start();
+        fifthOsc.start();
+
+        // Keep pointers to close later
+        menuSynth = {
+          ctx: audioCtx,
+          nodes: [musicOsc, subOsc, fifthOsc],
+          amp: musicAmp
+        };
+
+        document.getElementById('music-play-btn').textContent = '⏸';
+
+      } catch(e) {
+        console.error("Audio Context Init Failed:", e);
+      }
+    }
+
+    function updateSynthVolume() {
+      if (menuSynth && menuSynth.amp) {
+        const volumeFactor = settings.mute ? 0 : (settings.volume / 100);
+        const targetGain = volumeFactor * 0.15;
+        menuSynth.amp.gain.setValueAtTime(menuSynth.amp.gain.value, menuSynth.ctx.currentTime);
+        menuSynth.amp.gain.linearRampToValueAtTime(targetGain, menuSynth.ctx.currentTime + 0.3);
+      }
+    }
+
+    function pauseSynthesizedAmbiance() {
+      if (menuSynth && menuSynth.amp) {
+        menuSynth.amp.gain.setValueAtTime(menuSynth.amp.gain.value, menuSynth.ctx.currentTime);
+        menuSynth.amp.gain.linearRampToValueAtTime(0, menuSynth.ctx.currentTime + 0.5);
+      }
+    }
+
+    function resumeSynthesizedAmbiance() {
+      if (menuSynth) {
+        if (menuSynth.ctx.state === 'suspended') {
+          menuSynth.ctx.resume();
+        }
+        const targetGain = settings.mute ? 0 : (settings.volume / 100) * 0.15;
+        menuSynth.amp.gain.setValueAtTime(menuSynth.amp.gain.value, menuSynth.ctx.currentTime);
+        menuSynth.amp.gain.linearRampToValueAtTime(targetGain, menuSynth.ctx.currentTime + 0.5);
+      } else if (activeMusicId) {
+        startSynthesizedAmbiance(activeMusicId);
+      }
+    }
+
+    function stopSynthesizedAmbiance() {
+      if (menuSynth) {
+        try {
+          menuSynth.nodes.forEach(n => n.stop());
+        } catch(e) {}
+        menuSynth = null;
+      }
+    }
+
+    // ----------------------------------------------------
+    // PARTICLES CANVAS BACKGROUND
+    // ----------------------------------------------------
+    function initMenuParticles() {
+      const canvas = document.getElementById('menu-particles');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      
+      let width = canvas.width = window.innerWidth;
+      let height = canvas.height = window.innerHeight;
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      const particles = [];
+      const particleCount = 40;
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          r: Math.random() * 2 + 1,
+          d: Math.random() * particleCount,
+          vx: Math.random() * 0.5 - 0.25,
+          vy: Math.random() * -0.5 - 0.2,
+          alpha: Math.random() * 0.5 + 0.2
+        });
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        ctx.fillStyle = 'rgba(212, 175, 55, 0.4)'; // Gold particles
+        ctx.beginPath();
+        
+        for (let i = 0; i < particleCount; i++) {
+          const p = particles[i];
+          ctx.moveTo(p.x, p.y);
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+
+          // Update position
+          p.x += p.vx;
+          p.y += p.vy;
+
+          // Wrap around edges
+          if (p.x < 0 || p.x > width || p.y < 0) {
+            p.x = Math.random() * width;
+            p.y = height + 10;
+          }
+        }
+        ctx.fill();
+        requestAnimationFrame(draw);
+      }
+
+      draw();
+    }
+
+    // ----------------------------------------------------
+    // SERVICE WORKER REGISTRATION
+    // ----------------------------------------------------
+    function registerServiceWorker() {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js')
+          .then((registration) => {
+            console.log('[Service Worker] Registered with scope:', registration.scope);
+          })
+          .catch((error) => {
+            console.error('[Service Worker] Registration failed:', error);
+          });
+      }
+    }
+  </script>
 </body>
 </html>

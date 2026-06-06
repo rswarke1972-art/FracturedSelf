@@ -1,54 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>
-        Fractured Self: The Fall of Nader
-    </title>
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fractured Self: The Fall of Nader (Definitive Edition)</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;800&family=Inter:wght@300;400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="theme-dark font-georgia size-medium">
 
-    <!-- STORY SCREEN -->
-    <main id="story-container">
+  <!-- Cinematic Visual Novel Engine Layer -->
+  <main id="story-container">
+    
+    <!-- Cross-fading Scene Renderer -->
+    <div class="scene-viewport">
+      <img id="scene-image-primary" class="scene-img active" src="assets/images/intro/scene1.webp" alt="Primary Scene" />
+      <img id="scene-image-secondary" class="scene-img" src="" alt="Secondary Scene" />
+    </div>
 
-        <!-- Background Scene -->
-        <img
-            id="scene-image"
-            src="assets/images/intro/scene1.webp"
-            alt="Scene Image"
-        >
+    <!-- Radial Dark Vignette Overlay -->
+    <div class="scene-overlay"></div>
 
-        <!-- Dark Overlay -->
-        <div class="scene-overlay"></div>
+    <!-- Canvas for Environmental Particle Systems (Rain, Snow, Dust, Fog) -->
+    <canvas id="immersion-canvas"></canvas>
 
-        <!-- Dialogue UI -->
-        <section id="dialogue-box">
+    <!-- Cinematic Black transition barrier for fades -->
+    <div id="cinematic-overlay" class="fade-out"></div>
 
-            <!-- Speaker Name -->
-            <h2 id="speaker-name"></h2>
+    <!-- Dialogue UI Box -->
+    <section id="dialogue-box" class="glass-panel" aria-label="Dialogue Window">
+      
+      <!-- Speaker Name Label badge -->
+      <div id="speaker-container">
+        <h2 id="speaker-name"></h2>
+      </div>
 
-            <!-- Story Text -->
-            <p id="story-text">
-                Loading story...
-            </p>
+      <!-- Dialogue text box -->
+      <div class="dialogue-content">
+        <p id="story-text">Loading script...</p>
+      </div>
 
-            <!-- Continue Hint -->
-            <span id="continue-indicator">
-                Click anywhere to continue →
-            </span>
+      <!-- Pulse indicator to continue -->
+      <span id="continue-indicator">▼</span>
 
-        </section>
+      <!-- Interactive Glassmorphic Control Dock -->
+      <nav class="hud-control-dock" aria-label="Quick Controls">
+        <button onclick="rewindScene(); event.stopPropagation();" title="Previous Line (ArrowLeft)" class="hud-btn">← Back</button>
+        <button id="hud-auto" onclick="toggleAutoPlay(); event.stopPropagation();" title="Auto Advance (A)" class="hud-btn">▶ Auto</button>
+        <button id="hud-skip" onclick="toggleSkip(); event.stopPropagation();" title="Skip Dialogue" class="hud-btn">⏩ Skip</button>
+        <button onclick="openStoryModal('modal-history'); event.stopPropagation();" title="Show Transcript (H)" class="hud-btn">📜 History</button>
+        <button onclick="openSaveModal(); event.stopPropagation();" title="Save Progress" class="hud-btn">💾 Save</button>
+        <button onclick="openLoadModal(); event.stopPropagation();" title="Load Progress" class="hud-btn">📂 Load</button>
+        <button onclick="openStoryModal('modal-settings'); event.stopPropagation();" title="Settings (Esc)" class="hud-btn">⚙ Settings</button>
+        <button onclick="confirmExitMenu(); event.stopPropagation();" title="Exit to Menu" class="hud-btn">🏠 Menu</button>
+      </nav>
+    </section>
 
-    </main>
+    <!-- Interactive Choice Overlays -->
+    <div id="choice-container" class="hidden glass-panel text-center">
+      <h3 id="choice-question">What will you do?</h3>
+      <div id="choice-buttons-grid">
+        <!-- Buttons will be dynamically added via script -->
+      </div>
+    </div>
+  </main>
 
-    <!-- Script -->
-    <script src="script.js"></script>
+  <!-- ========================================== -->
+  <!-- MODAL: SAVE PROGRESS -->
+  <!-- ========================================== -->
+  <div id="modal-save" class="modal-overlay" onclick="closeStoryModalOnBackdrop(event)">
+    <div class="modal-box glass-panel animate-fade-in">
+      <header class="modal-header">
+        <h2>Save Progress</h2>
+        <button class="close-btn" onclick="closeStoryModal('modal-save')">&times;</button>
+      </header>
+      <div class="modal-body">
+        <div class="save-slots-grid">
+          <!-- Slot 1 -->
+          <div class="save-slot glass-panel ripple" onclick="saveToSlot(1)">
+            <span class="slot-num">Slot 1</span>
+            <div class="slot-info" id="save-slot-1-info">Empty Slot</div>
+          </div>
+          <!-- Slot 2 -->
+          <div class="save-slot glass-panel ripple" onclick="saveToSlot(2)">
+            <span class="slot-num">Slot 2</span>
+            <div class="slot-info" id="save-slot-2-info">Empty Slot</div>
+          </div>
+          <!-- Slot 3 -->
+          <div class="save-slot glass-panel ripple" onclick="saveToSlot(3)">
+            <span class="slot-num">Slot 3</span>
+            <div class="slot-info" id="save-slot-3-info">Empty Slot</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- ========================================== -->
+  <!-- MODAL: LOAD PROGRESS -->
+  <!-- ========================================== -->
+  <div id="modal-load" class="modal-overlay" onclick="closeStoryModalOnBackdrop(event)">
+    <div class="modal-box glass-panel animate-fade-in">
+      <header class="modal-header">
+        <h2>Load Progress</h2>
+        <button class="close-btn" onclick="closeStoryModal('modal-load')">&times;</button>
+      </header>
+      <div class="modal-body">
+        <div class="save-slots-grid">
+          <!-- Slot 1 -->
+          <div class="save-slot glass-panel ripple" onclick="loadFromSlot(1)">
+            <span class="slot-num">Slot 1</span>
+            <div class="slot-info" id="load-slot-1-info">Empty Slot</div>
+          </div>
+          <!-- Slot 2 -->
+          <div class="save-slot glass-panel ripple" onclick="loadFromSlot(2)">
+            <span class="slot-num">Slot 2</span>
+            <div class="slot-info" id="load-slot-2-info">Empty Slot</div>
+          </div>
+          <!-- Slot 3 -->
+          <div class="save-slot glass-panel ripple" onclick="loadFromSlot(3)">
+            <span class="slot-num">Slot 3</span>
+            <div class="slot-info" id="load-slot-3-info">Empty Slot</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: TRANSCRIPT HISTORY -->
+  <!-- ========================================== -->
+  <div id="modal-history" class="modal-overlay" onclick="closeStoryModalOnBackdrop(event)">
+    <div class="modal-box glass-panel wide-modal animate-fade-in">
+      <header class="modal-header">
+        <h2>Dialogue History</h2>
+        <button class="close-btn" onclick="closeStoryModal('modal-history')">&times;</button>
+      </header>
+      <div class="modal-body scrollable" id="history-modal-body">
+        <!-- Dynamically populated -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: SETTINGS (ACCESSIBILITY) -->
+  <!-- ========================================== -->
+  <div id="modal-settings" class="modal-overlay" onclick="closeStoryModalOnBackdrop(event)">
+    <div class="modal-box glass-panel animate-fade-in">
+      <header class="modal-header">
+        <h2>Game Settings</h2>
+        <button class="close-btn" onclick="closeStoryModal('modal-settings')">&times;</button>
+      </header>
+      <div class="modal-body scrollable">
+        <form id="settings-form" onsubmit="event.preventDefault();">
+          
+          <!-- Themes -->
+          <div class="setting-group">
+            <h3>Visual Theme</h3>
+            <div class="theme-options">
+              <label class="theme-option dark active" onclick="setThemeOption('dark')">
+                <input type="radio" name="theme" value="dark" checked style="display:none;" />
+                Dark
+              </label>
+              <label class="theme-option light" onclick="setThemeOption('light')">
+                <input type="radio" name="theme" value="light" style="display:none;" />
+                Light
+              </label>
+              <label class="theme-option sepia" onclick="setThemeOption('sepia')">
+                <input type="radio" name="theme" value="sepia" style="display:none;" />
+                Sepia
+              </label>
+              <label class="theme-option high-contrast" onclick="setThemeOption('high-contrast')">
+                <input type="radio" name="theme" value="high-contrast" style="display:none;" />
+                Contrast
+              </label>
+            </div>
+          </div>
+
+          <!-- Font Family -->
+          <div class="setting-group">
+            <h3>Font Family</h3>
+            <div class="select-wrapper">
+              <select id="setting-font" onchange="updateSettingsFromUI()">
+                <option value="georgia">Georgia (Literary Classical)</option>
+                <option value="inter">Inter (Modern Clean)</option>
+                <option value="lora">Lora (Sleek Serif)</option>
+                <option value="cinzel">Cinzel (Cinematic Elegant)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Text Size -->
+          <div class="setting-group">
+            <h3>Dialogue Text Size</h3>
+            <div class="toggle-buttons">
+              <button type="button" class="toggle-btn" id="size-small" onclick="setTextSizeOption('small')">Small</button>
+              <button type="button" class="toggle-btn active" id="size-medium" onclick="setTextSizeOption('medium')">Medium</button>
+              <button type="button" class="toggle-btn" id="size-large" onclick="setTextSizeOption('large')">Large</button>
+              <button type="button" class="toggle-btn" id="size-xlarge" onclick="setTextSizeOption('xlarge')">Extra Large</button>
+            </div>
+          </div>
+
+          <!-- Text Speed -->
+          <div class="setting-group">
+            <h3>Typewriter Text Speed</h3>
+            <div class="toggle-buttons">
+              <button type="button" class="toggle-btn" id="speed-slow" onclick="setTextSpeedOption('slow')">Slow</button>
+              <button type="button" class="toggle-btn active" id="speed-medium" onclick="setTextSpeedOption('medium')">Medium</button>
+              <button type="button" class="toggle-btn" id="speed-fast" onclick="setTextSpeedOption('fast')">Fast</button>
+              <button type="button" class="toggle-btn" id="speed-instant" onclick="setTextSpeedOption('instant')">Instant</button>
+            </div>
+          </div>
+
+          <!-- Auto Delay -->
+          <div class="setting-group">
+            <h3>Auto-Play Delay (seconds)</h3>
+            <div class="slider-group">
+              <input type="range" id="setting-auto-delay" min="1" max="6" step="0.5" value="2.5" oninput="updateDelayLabel(this.value); updateSettingsFromUI();" />
+              <span id="delay-label">2.5s</span>
+            </div>
+          </div>
+
+          <!-- Sounds -->
+          <div class="setting-group">
+            <h3>Audio Volumes</h3>
+            <div class="volume-slider-group">
+              <span class="vol-label">Music Volume</span>
+              <input type="range" id="setting-vol-music" min="0" max="100" value="50" oninput="updateSettingsFromUI()" />
+              <span id="vol-music-val">50%</span>
+            </div>
+            <div class="volume-slider-group" style="margin-top: 12px;">
+              <span class="vol-label">Sound Effects</span>
+              <input type="range" id="setting-vol-sfx" min="0" max="100" value="50" oninput="updateSettingsFromUI()" />
+              <span id="vol-sfx-val">50%</span>
+            </div>
+            <div class="checkbox-group" style="margin-top: 15px;">
+              <input type="checkbox" id="setting-mute" onchange="updateSettingsFromUI()" />
+              <label for="setting-mute">Mute All Audio</label>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- MODAL: CONFIRM EXIT -->
+  <!-- ========================================== -->
+  <div id="modal-confirm" class="modal-overlay">
+    <div class="modal-box glass-panel text-center animate-fade-in" style="max-width: 400px;">
+      <h3 class="text-gold" style="font-size: 1.3rem;">Return to Main Menu?</h3>
+      <p style="margin: 15px 0; font-size: 0.95rem; line-height: 1.5;">Your autosave will keep your current position, but any changes in settings or un-saved choices will be loaded next session.</p>
+      <div style="display: flex; gap: 15px; justify-content: center;">
+        <button class="nav-btn ripple" style="width: 120px;" onclick="exitToMenu()">Confirm</button>
+        <button class="nav-btn ripple" style="width: 120px; background: rgba(255,255,255,0.08);" onclick="closeStoryModal('modal-confirm')">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Core -->
+  <script src="script.js"></script>
 </body>
 </html>
